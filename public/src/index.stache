@@ -1,0 +1,48 @@
+<html>
+
+<head>
+  <title>{{title}}</title>
+</head>
+
+<body>
+  <can-import from="public/styles.less" />
+  <can-import from="spectre.css/dist/spectre.css" />
+  <can-import from="public/app" export-as="viewModel" />
+  <div class="container">
+    <header class="navbar">
+      <section class="navbar-section">
+        <a href="{{#routeUrl(page='home')}}" class="navbar-brand mr-2">{{title}}</a>
+        {{#each(componentProps)}}
+          <a href="{{#routeUrl(page=id)}}" class="btn btn-link">{{title}}</a>
+        {{/each}}
+        <a href="https://github.com/picturepan2/spectre" class="btn btn-link">GitHub</a>
+      </section>
+      <section class="navbar-section">
+        <div class="input-group input-inline">
+          <input class="form-input" type="text" placeholder="search">
+          <button class="btn btn-primary input-group-btn">Search</button>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      {{#if (activeComponentProps)}}
+        <can-import from="{{activeComponentProps.path}}">
+          {{#if(isResolved)}}
+            {{{activeComponentTemplate}}}
+          {{else}}
+            <div class="loading" />
+          {{/if}}
+          </can-import>
+      {{/if}}
+    </main>
+  </div>
+
+  {{#switch env.NODE_ENV}} {{#case "production"}}
+  <script src="{{joinBase 'steal.production.js'}}"></script>
+  {{/case}} {{#default}}
+  <script src="/node_modules/steal/steal.js"></script>
+  {{/default}} {{/switch}}
+</body>
+
+</html>
