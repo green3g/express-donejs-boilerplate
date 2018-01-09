@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>{{title}}</title>
+  <title>{{title}}{{#if(activeComponentProps.title)}} | {{activeComponentProps.title}}{{/if}}</title>
 </head>
 
 <body>

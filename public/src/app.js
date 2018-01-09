@@ -19,7 +19,6 @@ const AppViewModel = DefineMap.extend('AppViewModel', {
   },
   activeComponentProps: {
     get() {
-      const page = this.page;
       const filtered = this.componentProps.filter(comp => {
         return this.page === comp.id;
       });
