@@ -1,14 +1,14 @@
 // required for es6 syntax
 require('babel-register');
 
-const app = require('./lib/services/app');
+const app = require('./server/services/app');
 const express = require('@feathersjs/express');
 
 // static files
 app.use(express.static(__dirname + '/public'));
 
 // services
-require('./lib/services/todo');
+require('./server/services/todo');
 
 
 // donejs
