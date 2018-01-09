@@ -16,7 +16,8 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "nodemon . --develop",
+    "postinstall": "cd public && npm i && cd ..",
+    "start": "node . --develop",
     "clean": "rimraf dist",
     "build": "babel src -d dist",
     "lint": "eslint src tests",
