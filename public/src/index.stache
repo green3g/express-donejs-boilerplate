@@ -7,14 +7,14 @@
 <body>
   <can-import from="public/styles.less" />
   <can-import from="spectre.css/dist/spectre.css" />
+  <can-import from="spectre.css/dist/spectre-icons.css" />
   <can-import from="public/app" export-as="viewModel" />
+  <can-import from="public/components/nav-menu/nav-menu" />
   <div class="container">
     <header class="navbar">
       <section class="navbar-section">
         <a href="{{#routeUrl(page='home')}}" class="navbar-brand mr-2">{{title}}</a>
-        {{#each(componentProps)}}
-          <a href="{{#routeUrl(page=id)}}" class="btn btn-link">{{title}}</a>
-        {{/each}}
+        <nav-menu items:from="componentProps"></nav-menu>
         <a href="https://github.com/picturepan2/spectre" class="btn btn-link">GitHub</a>
       </section>
       <section class="navbar-section">
@@ -26,7 +26,7 @@
     </header>
 
     <main>
-      {{#if (activeComponentProps)}}
+      {{#if (activeComponentProps.path)}}
         <can-import from="{{activeComponentProps.path}}">
           {{#if(isResolved)}}
             {{{activeComponentTemplate}}}

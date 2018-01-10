@@ -32,7 +32,7 @@
                 "--inspect-brk",
                 "${workspaceFolder}/index.js",
                 "--runInBand",
-                "--debug"
+                "--develop"
             ]            
         },
         {

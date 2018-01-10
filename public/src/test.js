@@ -7,6 +7,8 @@ import 'public/page-home/page-home-test';
 
 import 'public/page-test/page-test-test';
 
+import 'public/nav-menu/nav-menu-test';
+
 F.attach(QUnit);
 
 QUnit.module('public functional smoke test', {

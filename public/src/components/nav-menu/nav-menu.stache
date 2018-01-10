@@ -1,0 +1,18 @@
+{{#each(items, item=value)}}
+{{#unless(item.exclude)}}
+{{#if(item.children)}}
+<div class="dropdown">
+    <a class="btn btn-link dropdown-toggle" tabindex="0">{{item.title}} <i class="{{#if(item.icon)}}{{item.icon}}{{else}}icon icon-caret{{/if}}"></i></a>
+    <ul class="menu">
+        {{#each(item.children, child=value)}}
+        <li class="menu-item">
+            <a href="{{#routeUrl(page=child.id)}}">{{child.title}}</a>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+{{else}}
+<a href="{{#routeUrl(page=item.id)}}" class="btn btn-link">{{item.title}}</a>
+{{/if}}
+{{/unless}}
+{{/each}}
