@@ -12,12 +12,15 @@ require('./server/services/todo');
 
 
 // donejs
+// Make sure the ssr middleware is the last
+// middleware in the chain but before the error handler
 app.use('/', require('./public/ssr-service'));
 
-app.listen(3000, () => {
-  console.log('Example app listening on port 3000!');
+// start the server on port
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}!`);
 });
-
 
 // start the steal tools live-reload server
 if (process.argv.indexOf('--develop') !== -1) {

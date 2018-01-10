@@ -31,6 +31,7 @@ const AppViewModel = DefineMap.extend('AppViewModel', {
       const comp = this.activeComponentProps;
       return stache(`<${comp.tag} ${comp.attributes || ''} />`);
     },
+    serialize: false,
   },
   page: {
     type: 'string',
