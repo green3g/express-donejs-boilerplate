@@ -28,6 +28,10 @@
     "donejs-app"
   ],
   "steal": {
+    "bundle": [
+      "public/components/page-home/page-home",
+      "public/components/page-test/page-test"
+    ],
     "main": "public/index.stache!done-autorender",
     "directories": {
       "lib": "src"
