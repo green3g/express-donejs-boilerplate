@@ -5,6 +5,37 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Start Production Server",
+            "type": "node",
+            "request": "launch",
+            "protocol": "inspector",
+            "port": 9229,
+            "env": {
+                "NODE_ENV": "production"
+            },
+            "runtimeArgs": [
+                "--inspect-brk",
+                "${workspaceFolder}/index.js",
+                "--runInBand"
+            ]            
+        },
+        {
+            "name": "Start Debug Server",
+            "type": "node",
+            "request": "launch",
+            "protocol": "inspector",
+            "port": 9229,
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "runtimeArgs": [
+                "--inspect-brk",
+                "${workspaceFolder}/index.js",
+                "--runInBand",
+                "--debug"
+            ]            
+        },
+        {
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome",

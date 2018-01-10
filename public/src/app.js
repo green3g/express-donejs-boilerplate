@@ -35,6 +35,12 @@ const AppViewModel = DefineMap.extend('AppViewModel', {
   page: {
     type: 'string',
   },
+
+  // node stuff
+  request: { serialize: false },
+  env: { serialize: false },
+
+  // initialize can-route
   init() {
     window.route = route;
     route('{page}', { page: 'home' });
